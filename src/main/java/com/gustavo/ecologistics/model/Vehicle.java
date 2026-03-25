@@ -17,13 +17,13 @@ public class Vehicle {
     private Long id;
 
     @Column(nullable = false)
-    private String licencePlate;
+    private String licensePlate;
 
     @Column(nullable = false)
     private String modelName;
 
     @Column(nullable = false)
-    private String capacitykg;
+    private Double capacityKg;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
