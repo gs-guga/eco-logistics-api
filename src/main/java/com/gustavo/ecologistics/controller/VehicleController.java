@@ -33,24 +33,13 @@ public class VehicleController {
 
     }
 
-    @PutMapping("/{id}")
-    public Vehicle update(@PathVariable Long id, @RequestBody Vehicle vehicleDetails){
-        Vehicle vehicle = vehicleService.findById(id);
-
-
-        vehicle.setLicensePlate(vehicleDetails.getLicensePlate());
-        vehicle.setFuelType(vehicleDetails.getFuelType());
-        vehicle.setCapacityKg(vehicleDetails.getCapacityKg());
-        vehicle.setModelName(vehicleDetails.getModelName());
-
-        return vehicleService.save(vehicle);
-
-    }
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         Vehicle vehicle = vehicleService.findById(id);
         vehicleService.delete(id);
     }
-
+    @PutMapping("/id")
+    public Vehicle update(@PathVariable Long id, @RequestBody Vehicle vehicle){
+        return vehicleService.update(id, vehicle);
+    }
 }

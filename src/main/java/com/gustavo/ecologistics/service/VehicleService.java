@@ -31,4 +31,17 @@ public class VehicleService {
         Vehicle vehicle = findById(id);
         vehicleRepository.delete(vehicle);
     }
+    public Vehicle update(Long id, Vehicle vehicleDetails) {
+
+        Vehicle existingVehicle = findById(id);
+
+        existingVehicle.setLicensePlate(vehicleDetails.getLicensePlate());
+        existingVehicle.setModelName(vehicleDetails.getModelName());
+        existingVehicle.setCapacityKg(vehicleDetails.getCapacityKg());
+        existingVehicle.setFuelType(vehicleDetails.getFuelType());
+
+
+        return vehicleRepository.save(existingVehicle);
+    }
+
 }
